@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+<?php
+  session_start();  
+  $log_status = isset($_SESSION["is_logged_in"]) ? $_SESSION["is_logged_in"] : false;
+  if(!$log_status)
+  {
+     header("Location: ../frontend/index.php");
+     exit();
+  }
+  else{
+    ?>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +18,10 @@
 </head>
 <body>
     <?php
-     include '../frontend/navbar.php'
+        include '../frontend/navbar.php';
     ?>
 </body>
 </html>
+    <?php
+  }
+?>
