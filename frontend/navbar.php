@@ -9,8 +9,9 @@
                 $status = isset($_SESSION["is_logged_in"]) ? $_SESSION["is_logged_in"] : false;
                 if($status){
                     ?>
+                    <li><a href="../frontend/home.php">HOME</a></li>
                     <li><a href="../frontend/book.php">BOOKS</a></li>
-                    <li><a href="">STUDENTS</a></li>
+                    <li><a href="../frontend/students.php">STUDENTS</a></li>
                     <li><a href="">ISSUE BOOKS</a></li>
                     <li><a href="">RETURN BOOKS</a></li>
                     <li><a href="../backend/logout.php">LOGOUT</a></li>
