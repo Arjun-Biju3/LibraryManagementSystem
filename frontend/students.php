@@ -18,7 +18,7 @@
     <style>   
     .add-btn
     {
-     width: 200px;
+     width: 108px;
       
     }
     .book-details table
@@ -34,6 +34,7 @@
     {
         display:flex;
         flex-direction:row;
+        gap:2px;
     }
     .add-search-btn 
     {
@@ -55,6 +56,7 @@
     .add-search-btn input{
         border:2px solid black;
         border-radius:5px;
+        height:33px;
     }
     </style>
 </head>
@@ -63,9 +65,9 @@
         include '../frontend/navbar.php';
     ?>
     <div class="add-search-btn">
-     <a href="../frontend/add_book.php"><button id="add-btn" class="add-btn">ADD STUDENT</button></a>
+     <a href="../frontend/add_student.php"><button id="add-btn" class="add-btn">ADD STUDENT</button></a>
      <form action="" method="post">
-        <input type="text" name="key" placeholder="Admission Number">
+        <input type="text" name="key" required placeholder="ADMISSION NUMBER">
         <button type="submit" id="search">SEARCH</button>
      </form>
     </div>
@@ -89,6 +91,15 @@
                     $key = $_POST["key"];
                     $qry = "SELECT * FROM table_students WHERE admission_number='$key'";
                     $result = mysqli_query($conn,$qry);
+                    if(mysqli_num_rows($result)<1)
+                    {
+                        ?>
+                            <script>
+                                alert("No Student Found");
+                                window.location.href = "../frontend/students.php";
+                            </script>
+                        <?php
+                    }
                     $row = mysqli_fetch_assoc($result);
                     ?>
                     <tr>

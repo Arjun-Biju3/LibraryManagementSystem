@@ -21,13 +21,15 @@
         include '../frontend/navbar.php';
     ?>
     <div class="book-details">
-        <table>
+        <table id="transaction">
             <thead>
                 <tr>
                     <th>Book</th>
                     <th>UID Number</th>
                     <th>STUDENT</th>
                     <th>ADMISSION NUMBER</th>
+                    <th>Issued Date</th>
+                    <th>Return Date</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -53,6 +55,8 @@
                                     <td><?php echo $row1["uid"]; ?></td>
                                     <td><?php echo $row2["name"]; ?></td>
                                     <td><?php echo $row2["admission_number"];?></td>
+                                    <td><?php echo $row["issued_date"];?></td>
+                                    <td><?php echo $row["return_date"];?></td>
                                     <td><?php echo $row["status"]; ?></td>
                                     <td>
                                         <?php
@@ -61,7 +65,7 @@
                                                 ?>
                                                 <form action="../backend/change_transaction_status.php" method="post">
                                                 <input type="text" name="id" hidden value="<?php echo $row['id']; ?>">
-                                                <button class="btn" type="submit" onclick="return confirm('Do you want to change status?');">RETURN</button>
+                                                <button id="return-btn" class="btn" type="submit" onclick="return confirm('Do you want to change status?');">RETURN</button>
                                                 </form>
                                                 <?php
                                             }

@@ -34,6 +34,7 @@
     {
         display:flex;
         flex-direction:row;
+        gap:2px;
     }
     .add-search-btn 
     {
@@ -55,6 +56,7 @@
     .add-search-btn input{
         border:2px solid black;
         border-radius:5px;
+        height:33px;
     }
 </style>
 </head>
@@ -65,7 +67,7 @@
      <div class="add-search-btn">
      <a href="../frontend/add_book.php"><button class="add-btn">ADD BOOK</button></a>
      <form action="" method="post">
-        <input type="text" name="key" placeholder="Title Of Book">
+        <input type="text" name="key" required placeholder="TITLE OF BOOK">
         <button type="submit" id="search">SEARCH</button>
      </form>
     </div>
@@ -85,6 +87,37 @@
             <tbody>
             <?php
                 include '../backend/connection.php';
+                if(isset($_POST["key"]))
+                {
+                    $key = $_POST["key"];
+                    $qry = "SELECT * FROM table_books WHERE title='$key'";
+                    $result = mysqli_query($conn,$qry);
+                    if(mysqli_num_rows($result)<1)
+                    {
+                        ?>
+                            <script>
+                                alert("No Book Found");
+                                window.location.href = "../frontend/book.php";
+                            </script>
+                        <?php
+                    }
+                    $row = mysqli_fetch_assoc($result);
+                    ?>
+                    <tr>
+                    <td><?php echo $row["title"]; ?></td>
+                    <td><?php echo $row["author"]; ?></td>
+                    <td><?php echo $row["year_of_publication"]; ?></td>
+                    <td><?php echo $row["description"];?></td>
+                    <td><?php echo $row["uid"]; ?></td>
+                    <td><?php echo $row["status"]; ?></td>
+                    <td><form action="../frontend/details.php" method="get">
+                        <input type="text" name="id" hidden value="<?php echo $row['id']; ?>">
+                        <button class="btn">ViEW DETAILS</button>
+                    </form></td>
+                </tr>
+                <?php
+                }
+                else{
                 $sql = "SELECT * FROM table_books";
                 $res = mysqli_query($conn,$sql);
                 while($row = mysqli_fetch_assoc($res)){
@@ -104,6 +137,7 @@
 
                 <?php
                 }
+            }
             ?>
             </tbody>
         </table>

@@ -16,14 +16,6 @@
     <title>Add Book</title>
     <link rel="stylesheet" href="../static/css/index.css">
     <link rel="stylesheet" href="../static/css/details.css"> 
-    <style>
-        .book-add-buttons
-{
-    justify-content: center;
-    display: flex;
-    gap: 30px;
-}
-    </style>
 </head>
 <body>
    <?php include '../frontend/navbar.php'; ?>

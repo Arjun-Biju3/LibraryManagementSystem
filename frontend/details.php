@@ -66,7 +66,7 @@
                             ?>
                             <div class="assign-book">
                                 <form action="../frontend/assign_book.php" method="post">
-                                <input type="text" name="admission_number" required placeholder="Admission Number">
+                                <input type="text" name="admission_number" required placeholder="ADMISSION NUMBER">
                                 <a href="#details"><button type="submit" name="assign" class="book-btn book-btn-update">Assign Book</button></a>
                                 </form>
                             </div>

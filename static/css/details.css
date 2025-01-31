@@ -90,3 +90,9 @@
 {
     margin-top: 10px;
 }
+.book-add-buttons
+{
+    justify-content: center;
+    display: flex;
+    gap: 30px;
+}
