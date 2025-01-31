@@ -12,8 +12,7 @@
                     <li><a href="../frontend/home.php">HOME</a></li>
                     <li><a href="../frontend/book.php">BOOKS</a></li>
                     <li><a href="../frontend/students.php">STUDENTS</a></li>
-                    <li><a href="">ISSUE BOOKS</a></li>
-                    <li><a href="">RETURN BOOKS</a></li>
+                    <li><a href="../frontend/transactions.php">TRANSACTIONS</a></li>
                     <li><a href="../backend/logout.php">LOGOUT</a></li>
                     <?php        
                 }

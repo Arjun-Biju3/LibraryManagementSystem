@@ -12,7 +12,7 @@
     $sql = "UPDATE table_books SET title='$title',author='$author',year_of_publication='$yop',description='$description' WHERE id='$id'";
     $res = mysqli_query($conn,$sql);
     if($res){
-        $_SESSION["id_of_details"]=$id;
+        // $_SESSION["id_of_details"]=$id;
         ?>
             <script>
             alert("Details updated successfully");

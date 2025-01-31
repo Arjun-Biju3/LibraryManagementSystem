@@ -2,6 +2,7 @@
     include '../backend/connection.php';
     session_start();
     $id = $_GET["id"]? $_GET["id"] : $_SESSION["id_of_details"] ;
+    $_SESSION["id_of_details"] = $id;
     $sql = "SELECT * FROM table_books WHERE id = $id";
     $result = mysqli_query($conn, $sql);
     if ($row = mysqli_fetch_assoc($result)) {
@@ -47,12 +48,28 @@
                 </table>
 
                 <div class="book-details-buttons">
-                    <input type="text" hidden name="id" value="<?php echo $row['id']; ?>">
+                   <div class="book-details-operations">
+                   <input type="text" hidden name="id" value="<?php echo $row['id']; ?>">
                     <button type="submit" name="update" class="book-btn book-btn-update">Upadte</button>
                     <button type="submit" name="delete" class="book-btn book-btn-delete" onclick="return confirm('Are you sure you want to delete this book?');">Delete</button>
                     <a href="../frontend/book.php" class="book-btn book-btn-back">Back</a>
+                    </form>
+                  </div>
+                    
+                  <?php
+                        if($row['status'] == "Available")
+                        {
+                            ?>
+                            <div class="assign-book">
+                                <form action="../frontend/assign_book.php" method="post">
+                                <input type="text" name="admission_number" required placeholder="Admission Number">
+                                <a href="#details"><button type="submit" name="assign" class="book-btn book-btn-update">Assign Book</button></a>
+                                </form>
+                            </div>
+                            <?php
+                        }
+                ?>
                 </div>
-            </form>
         </body>
         </html>
 <?php

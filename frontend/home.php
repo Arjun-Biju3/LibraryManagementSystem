@@ -20,6 +20,9 @@
     <?php
         include '../frontend/navbar.php';
     ?>
+    <div class="home-banner">
+      <center><img src="../static/images/banner-home.jpg" alt=""></center>
+    </div>
 </body>
 </html>
     <?php
