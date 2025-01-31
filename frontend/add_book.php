@@ -15,7 +15,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Book</title>
     <link rel="stylesheet" href="../static/css/index.css">
-    <link rel="stylesheet" href="../static/css/details.css">  <!-- Link the new shared style -->
+    <link rel="stylesheet" href="../static/css/details.css"> 
+    <style>
+        .book-add-buttons
+{
+    justify-content: center;
+    display: flex;
+    gap: 30px;
+}
+    </style>
 </head>
 <body>
    <?php include '../frontend/navbar.php'; ?>
@@ -54,7 +62,7 @@
                     </td>
                 </tr>
             </table>
-            <div class="book-details-buttons">
+            <div class="book-add-buttons">
                 <button type="submit" class="book-btn book-btn-update">Add Book</button>
                 <a href="../frontend/book.php" class="book-btn book-btn-back">Back</a>
             </div>

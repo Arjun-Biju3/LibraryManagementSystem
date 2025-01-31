@@ -15,11 +15,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books</title>
     <link rel="stylesheet" href="../static/css/index.css">
+<style>
+    .add-btn
+    {
+     width: 100px;
+      
+    }
+    .book-details table
+    {
+        margin-top:30px;
+    }
+    .add-search-btn input
+    {
+        width: 200px;
+        height:30px;
+    }
+    .add-search-btn form
+    {
+        display:flex;
+        flex-direction:row;
+    }
+    .add-search-btn 
+    {
+        display:flex;
+        flex-direction:row;
+        gap:70px;
+        margin-top:100px; 
+        margin-left:80px; 
+    }
+    #search
+    {
+        width:100px;
+        background-color:grey;
+    }
+    #search:hover
+    {
+        opacity:0.9;
+    }
+    .add-search-btn input{
+        border:2px solid black;
+        border-radius:5px;
+    }
+</style>
 </head>
 <body>
     <?php
         include '../frontend/navbar.php';
     ?>
+     <div class="add-search-btn">
+     <a href="../frontend/add_book.php"><button class="add-btn">ADD BOOK</button></a>
+     <form action="" method="post">
+        <input type="text" name="key" placeholder="Title Of Book">
+        <button type="submit" id="search">SEARCH</button>
+     </form>
+    </div>
     <div class="book-details">
         <table>
             <thead>
@@ -58,7 +107,6 @@
             ?>
             </tbody>
         </table>
-        <a href="../frontend/add_book.php"><button class="add">+</button></a>
     </div>
 </body>
 </html>

@@ -43,7 +43,11 @@
                     </tr>
                     <tr>
                         <th>Status</th>
-                        <td><?php echo $row["status"]; ?></td>
+                        <td>
+                            <?php 
+                            echo $row["status"]; 
+                            ?>
+                        </td>
                     </tr>
                 </table>
 

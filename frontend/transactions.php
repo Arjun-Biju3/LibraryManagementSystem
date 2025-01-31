@@ -54,10 +54,23 @@
                                     <td><?php echo $row2["name"]; ?></td>
                                     <td><?php echo $row2["admission_number"];?></td>
                                     <td><?php echo $row["status"]; ?></td>
-                                    <td><form action="#" method="get">
-                                        <input type="text" name="id" hidden value="<?php echo $row['id']; ?>">
-                                        <button class="btn">RETURN</button>
-                                    </form></td>
+                                    <td>
+                                        <?php
+                                            if($row["status"] != "Returned")
+                                            {
+                                                ?>
+                                                <form action="../backend/change_transaction_status.php" method="post">
+                                                <input type="text" name="id" hidden value="<?php echo $row['id']; ?>">
+                                                <button class="btn" type="submit" onclick="return confirm('Do you want to change status?');">RETURN</button>
+                                                </form>
+                                                <?php
+                                            }
+                                            else
+                                            {
+                                                echo "Not Applicable";
+                                            }
+                                        ?>
+                                    </td>
                                 </tr>
                             <?php
                         }

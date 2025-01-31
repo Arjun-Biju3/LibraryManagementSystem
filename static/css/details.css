@@ -21,7 +21,12 @@
     display: flex;
     gap: 30px;
 }
-
+.book-add-buttons
+{
+    justify-content: center;
+    display: flex;
+    gap: 30px;
+}
 
 .book-btn {
     padding: 10px 15px;
