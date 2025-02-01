@@ -143,12 +143,12 @@
                                     <td>
                                         <?php
                                             $issued_date = strtotime($row["issued_date"]);
-                                            $todays_date =date("Y-m-d");
+                                            $todays_date = date("Y-m-d");
                                             $today = strtotime($todays_date);
                                             $gap = $today - $issued_date;
                                             $diff =  round($gap/(60*60*24));
                                             $fine = 1;
-                                            $i =10;
+                                            $i =11;
                                             if($diff <=10)
                                             {
                                                 echo "NO fines";
@@ -194,6 +194,7 @@
                                             {
                                                 ?>
                                                 <form action="../backend/change_transaction_status.php" method="post">
+                                                <input type="text" hidden name="fine" value="<?php echo $fine; ?>">
                                                 <input type="text" name="id" hidden value="<?php echo $row['id']; ?>">
                                                 <button id="return-btn" class="btn" type="submit" onclick="return confirm('Do you want to change status?');">RETURN</button>
                                                 </form>
