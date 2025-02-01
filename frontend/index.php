@@ -18,7 +18,7 @@
         <div class="login-form">
             <h3>LOGIN</h3>
             <form action="../backend/login.php" method="post">
-                <input type="text" name="username" placeholder="USERNAME" required>
+                <input type="text" name="username" type="email" placeholder="USERNAME" required>
                 <input type="password" name="password" placeholder="PASSWORD" required>
                 <button type="submit">LOGIN</button>
             </form>

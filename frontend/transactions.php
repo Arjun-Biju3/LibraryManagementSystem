@@ -38,6 +38,7 @@
                     <th>Issued Date</th>
                     <th>Return Date</th>
                     <th>Status</th>
+                    <th>Fine</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -139,6 +140,54 @@
                                     <td><?php echo $row["issued_date"];?></td>
                                     <td><?php echo $row["return_date"];?></td>
                                     <td><?php echo $row["status"]; ?></td>
+                                    <td>
+                                        <?php
+                                            $issued_date = strtotime($row["issued_date"]);
+                                            $todays_date =date("Y-m-d");
+                                            $today = strtotime($todays_date);
+                                            $gap = $today - $issued_date;
+                                            $diff =  round($gap/(60*60*24));
+                                            $fine = 1;
+                                            $i =10;
+                                            if($diff <=10)
+                                            {
+                                                echo "NO fines";
+                                            }
+                                            else
+                                            {
+                                                if($diff == 11)
+                                                {
+                                                    echo $fine;
+                                                }
+                                                else{
+                                
+                                                        for($i;$i<$diff;$i++)
+                                                        {
+                                                            $fine = $fine * 2;
+                                                        }
+                                                        echo $fine;
+                                                    }
+                                            }
+                                            // $fine = 1;
+                                            // $i=1;
+                                            // if($diff <=10)
+                                            // {
+                                            //     echo "No fines";
+                                            // }
+                                            // if($diff == 11)
+                                            // {
+                                            //     echo $fine;
+                                            // }
+                                            // else{
+                                            //     for($i;$i<$diff;$i++)
+                                            //     {
+                                            //         $fine = $fine * 2;
+                                            //     }
+                                            //     echo $fine;
+                                            // }
+                                            
+                                        ?>
+                                    </td>
                                     <td>
                                         <?php
                                             if($row["status"] != "Returned")
